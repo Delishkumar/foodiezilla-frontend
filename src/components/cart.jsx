@@ -12,7 +12,7 @@ const CartPage = () => {
 
   const fetchCart = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/cart');
+      const res = await axios.get('https://foodzilla-backend.onrender.com/api/cart');
       const itemsWithCount = res.data.map(item => ({ ...item, quantity: 1 }));
       setCartItems(itemsWithCount);
     } catch (error) {
@@ -29,7 +29,7 @@ const CartPage = () => {
 
   const removeItem = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/cart/${id}`);
+      await axios.delete(`https://foodzilla-backend.onrender.com/api/cart/${id}`);
       toast.success('Item removed');
       setCartItems(cartItems.filter(item => item._id !== id));
     } catch (err) {
